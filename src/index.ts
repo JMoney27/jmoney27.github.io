@@ -2,7 +2,8 @@
 //also gives your editor info about the window.alt1 api
 import * as a1lib from "@alt1/base";
 import { ImgRef } from "@alt1/base";
-
+import * as Chatbox from "@alt1/chatbox";
+import {$,jQuery} from 'jquery';
 //tell webpack to add index.html and appconfig.json to output
 require("!file-loader?name=[name].[ext]!./index.html");
 require("!file-loader?name=[name].[ext]!./appconfig.json");
@@ -65,14 +66,16 @@ function findHomeport(img: ImgRef) {
 output.insertAdjacentHTML("beforeend", `
 	<div>paste an image of rs with homeport button (or not)</div>
 	<div onclick='TEST.capture()'>Click to capture if on alt1 TESTING!!!!!</div>`
+	
 );
-
+console.log('ran divs')
 //check if we are running inside alt1 by checking if the alt1 global exists
 if (window.alt1) {
 	//tell alt1 about the app
 	//this makes alt1 show the add app button when running inside the embedded browser
 	//also updates app settings if they are changed
 	alt1.identifyAppUrl("./appconfig.json");
+	console.log('Found alt1')
 }
 
 var imgref2 = a1lib.capture(100,100,400,400);
@@ -83,63 +86,64 @@ var imgref3 = a1lib.capture(100,100,-400,-400);
 // Show the image by adding it to the DOM (for debugging)
 imgref2.show();
 imgref3.show();
+console.log('Should show two images')
 
 
-// const appColor = A1lib.mixColor(255, 199, 0);
-
-// let reader = new Chatbox.default();
-// reader.readargs = {
-//   colors: [
-//     A1lib.mixColor(255, 255, 255), //White text
-//     A1lib.mixColor(0, 255, 0), //Green Fortune Text
-//   ],
-//   backwards: true,
-// };
+const appColor = a1lib.mixColor(255, 199, 0);
+console.log('Grabbing colors')
+let reader = new Chatbox.default();
+reader.readargs = {
+  colors: [
+    a1lib.mixColor(255, 255, 255), //White text
+    a1lib.mixColor(0, 255, 0), //Green Fortune Text
+  ]
+  
+};
+console.log('Read white/green')
 
 // $(".mats").append("<span>Searching for chatboxes</span>");
-// reader.find();
-// let findChat = setInterval(function () {
-//   if (reader.pos === null) reader.find();
-//   else {
-//     clearInterval(findChat);
-//     reader.pos.boxes.map((box, i) => {
-//       $(".chat").append(`<option value=${i}>Chat ${i}</option>`);
-//     });
+reader.find();
+let findChat = setInterval(function () {
+  if (reader.pos === null) reader.find();
+  else {
+    clearInterval(findChat);
+    reader.pos.boxes.map((box, i) => {
+      $(".chat").append(`<option value=${i}>Chat ${i}</option>`);
+    });
 
-//     if (localStorage.archChat) {
-//       reader.pos.mainbox = reader.pos.boxes[localStorage.archChat];
-//     } else {
-//       //If multiple boxes are found, this will select the first, which should be the top-most chat box on the screen.
-//       reader.pos.mainbox = reader.pos.boxes[0];
-//     }
-//     showSelectedChat(reader.pos);
-//     buildTable();
-//     $("button.tracker").click();
-//   }
-// }, 1000);
+    if (localStorage.archChat) {
+      reader.pos.mainbox = reader.pos.boxes[localStorage.archChat];
+    } else {
+      //If multiple boxes are found, this will select the first, which should be the top-most chat box on the screen.
+      reader.pos.mainbox = reader.pos.boxes[0];
+    }
+    showSelectedChat(reader.pos);
+    
+    $("button.tracker").click();
+  }
+}, 1000);
 
-// function showSelectedChat(chat) {
-//   //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
-//   try {
-//     alt1.overLayRect(
-//       appColor,
-//       chat.mainbox.rect.x,
-//       chat.mainbox.rect.y,
-//       chat.mainbox.rect.width,
-//       chat.mainbox.rect.height,
-//       2000,
-//       5
-//     );
-//   } catch {}
-// }
+function showSelectedChat(chat) {
+  //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
+  try {
+    alt1.overLayRect(
+      appColor,
+      chat.mainbox.rect.x,
+      chat.mainbox.rect.y,
+      chat.mainbox.rect.width,
+      chat.mainbox.rect.height,
+      2000,
+      5
+    );
+  } catch {}
+}
 
-// function readChatbox() {
-//   var opts = reader.read() || [];
-//   var chat = "";
+function readChatbox() {
+  var opts = reader.read() || [];
+  var chat = "";
+  console.log('read chatbox function')
+}
 
-//   for (a in opts) {
-//     chat += opts[a].text + " ";
-//   }
 
 //   let chatParse = chat.split(/\d+:?|\[|\]/g);
 //   chatParse.forEach((item) => {
