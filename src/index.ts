@@ -79,7 +79,7 @@ if (window.alt1) {
 }
 
 var imgref2 = a1lib.capture(100,100,400,400);
-var imgref3 = a1lib.capture(-100,-100,-400,-400);
+var imgref3 = a1lib.capture(50,50,300,300);
 // Retrieve our raw pixel data so we can directly read it
 //var imagebuffer = imgref2.buffer
 
