@@ -14850,6 +14850,7 @@ console.log('Should show two images');
 const appColor = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.mixColor(255, 199, 0);
 console.log('Grabbing colors');
 let reader = new _alt1_chatbox__WEBPACK_IMPORTED_MODULE_1__["default"]();
+console.log(reader);
 reader.readargs = {
     colors: [
         _alt1_base__WEBPACK_IMPORTED_MODULE_0__.mixColor(255, 255, 255),
@@ -14859,6 +14860,7 @@ reader.readargs = {
 console.log('Read white/green');
 // $(".mats").append("<span>Searching for chatboxes</span>");
 reader.find();
+console.log(reader.find());
 let findChat = setInterval(function () {
     if (reader.pos === null)
         reader.find();
@@ -14875,13 +14877,16 @@ let findChat = setInterval(function () {
             reader.pos.mainbox = reader.pos.boxes[0];
         }
         showSelectedChat(reader.pos);
+        console.log(showSelectedChat(reader.pos));
         (0,jquery__WEBPACK_IMPORTED_MODULE_2__.$)("button.tracker").click();
     }
 }, 1000);
 function showSelectedChat(chat) {
     //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
+    console.log('overlay attempted');
     try {
         alt1.overLayRect(appColor, chat.mainbox.rect.x, chat.mainbox.rect.y, chat.mainbox.rect.width, chat.mainbox.rect.height, 2000, 5);
+        console.log('overlay success');
     }
     catch (_a) { }
 }

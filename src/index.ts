@@ -92,6 +92,7 @@ console.log('Should show two images')
 const appColor = a1lib.mixColor(255, 199, 0);
 console.log('Grabbing colors')
 let reader = new Chatbox.default();
+console.log(reader)
 reader.readargs = {
   colors: [
     a1lib.mixColor(255, 255, 255), //White text
@@ -103,6 +104,8 @@ console.log('Read white/green')
 
 // $(".mats").append("<span>Searching for chatboxes</span>");
 reader.find();
+console.log(reader.find())
+
 let findChat = setInterval(function () {
   if (reader.pos === null) reader.find();
   else {
@@ -118,13 +121,14 @@ let findChat = setInterval(function () {
       reader.pos.mainbox = reader.pos.boxes[0];
     }
     showSelectedChat(reader.pos);
-    
+    console.log(showSelectedChat(reader.pos))
     $("button.tracker").click();
   }
 }, 1000);
 
 function showSelectedChat(chat) {
   //Attempt to show a temporary rectangle around the chatbox.  skip if overlay is not enabled.
+  console.log('overlay attempted')
   try {
     alt1.overLayRect(
       appColor,
@@ -135,6 +139,8 @@ function showSelectedChat(chat) {
       2000,
       5
     );
+	console.log('overlay success')
+
   } catch {}
 }
 
