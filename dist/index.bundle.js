@@ -14840,12 +14840,12 @@ if (window.alt1) {
     console.log('Found alt1');
 }
 var imgref2 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(100, 100, 400, 400);
-var imgref3 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(50, 50, 300, 300);
+//var imgref3 = a1lib.capture(50,50,300,300);
 // Retrieve our raw pixel data so we can directly read it
 //var imagebuffer = imgref2.buffer
 // Show the image by adding it to the DOM (for debugging)
 imgref2.show();
-imgref3.show();
+//mgref3.show();
 console.log('Should show two images');
 const appColor = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.mixColor(255, 199, 0);
 console.log('Grabbing colors');
