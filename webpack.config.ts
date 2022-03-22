@@ -18,5 +18,15 @@ config.entry("index", "./index.ts");
 //where to put all the stuff
 config.output(outdir);
 
+		rules: [
+			{
+				test: /\.data.png$/,
+				loader: ['@alt1/imagedata-loader']
+			},
+			{
+				test: /\.fontmeta.json$/,
+				loader: ["@alt1/font-loader"]
+			}
+		]
 
 export default config.toConfig();

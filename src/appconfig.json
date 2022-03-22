@@ -1,5 +1,5 @@
 {
-	"appName": "Test App",
+	"appName": "example app",
 	"description": "minimal alt1 webpack/ts example test app",
 	"appUrl": "./index.html",
 	"configUrl": "./appconfig.json",

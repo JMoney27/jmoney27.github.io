@@ -8,7 +8,7 @@
 		"@alt1/chatbox": "^1.0.0-alpha.3",
 		"@alt1/font-loader": "^1.0.0-alpha.2",
 		"@alt1/ocr": "^1.0.0-alpha.2",
-		"sharp": "^0.30.2"
+		"sharp": "^0.30.3"
 	},
 	"devDependencies": {
 		"@alt1/imagedata-loader": "^1.0.0-alpha.2",
