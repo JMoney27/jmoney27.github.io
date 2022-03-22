@@ -2240,7 +2240,9 @@ function findHomeport(img) {
     }
     //get raw pixels of image and show on screen (used mostly for debug)
     var buf = img.toData(100, 100, 200, 200);
+    var buf2 = img.toData(100, 100, -200, -200);
     buf.show();
+    buf2.show();
 }
 //print text world
 //also the worst possible example of how to use global exposed exports as described in webpack.config.json
