@@ -269,6 +269,7 @@ function ChatBoxReader() {
 		//the chatbox has timestamps if in the first 3 lines a line start with [00:00:00]
 		var readargs = { colors: [a1lib.mixcolor(127, 169, 255)] };
 		for (var line = 0; line < 3; line++) {
+			console.log('Check Timestamp')
 			var y = pos.rect.y + pos.line0y - line * this.lineheight;
 			var x = pos.rect.x + pos.line0x;
 			x += 3;//the leading '[' can't be the positioning char
