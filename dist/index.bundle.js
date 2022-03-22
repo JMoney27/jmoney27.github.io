@@ -2241,7 +2241,7 @@ function findHomeport(img) {
     //get raw pixels of image and show on screen (used mostly for debug)
     var buf = img.toData(100, 100, 200, 200);
     var buf2 = img.toData(100, 100, -200, -200);
-    buf.show();
+    //buf.show();
     buf2.show();
 }
 //print text world
