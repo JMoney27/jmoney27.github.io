@@ -64,7 +64,7 @@ function findHomeport(img: ImgRef) {
 
 output.insertAdjacentHTML("beforeend", `
 	<div>paste an image of rs with homeport button (or not)</div>
-	<div onclick='TEST.capture()'>Click to capture if on alt1</div>`
+	<div onclick='TEST.capture()'>Click to capture if on alt1 TESTING!!!!!</div>`
 );
 
 //check if we are running inside alt1 by checking if the alt1 global exists
