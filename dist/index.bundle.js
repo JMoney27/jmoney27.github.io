@@ -2240,9 +2240,7 @@ function findHomeport(img) {
     }
     //get raw pixels of image and show on screen (used mostly for debug)
     var buf = img.toData(100, 100, 200, 200);
-    var buf2 = img.toData(100, 100, -200, -200);
-    //buf.show();
-    buf2.show();
+    buf.show();
 }
 //print text world
 //also the worst possible example of how to use global exposed exports as described in webpack.config.json
@@ -2257,10 +2255,12 @@ if (window.alt1) {
     alt1.identifyAppUrl("./appconfig.json");
 }
 var imgref2 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(100, 100, 400, 400);
+var imgref3 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(100, 100, -400, -400);
 // Retrieve our raw pixel data so we can directly read it
 //var imagebuffer = imgref2.buffer
 // Show the image by adding it to the DOM (for debugging)
 imgref2.show();
+imgref3.show();
 // const appColor = A1lib.mixColor(255, 199, 0);
 // let reader = new Chatbox.default();
 // reader.readargs = {
