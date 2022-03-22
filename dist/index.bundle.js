@@ -14840,7 +14840,7 @@ if (window.alt1) {
     console.log('Found alt1');
 }
 var imgref2 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(100, 100, 400, 400);
-var imgref3 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(100, 100, -400, -400);
+var imgref3 = _alt1_base__WEBPACK_IMPORTED_MODULE_0__.capture(-100, -100, -400, -400);
 // Retrieve our raw pixel data so we can directly read it
 //var imagebuffer = imgref2.buffer
 // Show the image by adding it to the DOM (for debugging)
